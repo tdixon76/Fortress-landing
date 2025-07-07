@@ -4,19 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Fortress</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --teal: #00ffe1;
-    }
-
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
       font-family: 'Inter', sans-serif;
       background: url('https://images.unsplash.com/photo-1581091226825-4c4ef77c902c?fit=crop&w=1600&q=80') no-repeat center center fixed;
       background-size: cover;
@@ -25,7 +17,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      justify-content: flex-start;
+      padding: 60px 20px;
       position: relative;
     }
 
@@ -35,11 +28,11 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.8);
       z-index: 0;
     }
 
-    main, header, footer {
+    .container {
       position: relative;
       z-index: 1;
       max-width: 800px;
@@ -49,25 +42,25 @@
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
-      color: var(--teal);
-      text-shadow: 0 0 12px rgba(0, 255, 225, 0.6);
+      color: #00ffe1;
+      text-shadow: 0 0 10px rgba(0, 255, 225, 0.6);
       margin-bottom: 16px;
     }
 
     p {
       font-size: 1.2rem;
       line-height: 1.7;
-      color: #cccccc;
+      color: #ccc;
       margin-bottom: 40px;
     }
 
     .video-container {
       width: 100%;
       aspect-ratio: 16 / 9;
-      border: 2px solid var(--teal);
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 255, 225, 0.1);
+      border: 2px solid #00ffe1;
+      box-shadow: 0 0 20px rgba(0, 255, 225, 0.2);
       margin-bottom: 40px;
     }
 
@@ -82,27 +75,29 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 60px;
+      margin-top: 20px;
     }
 
     .links a {
-      color: var(--teal);
-      border: 1px solid var(--teal);
-      padding: 12px 24px;
+      background: transparent;
+      color: #00ffe1;
+      border: 1px solid #00ffe1;
+      padding: 10px 20px;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease, color 0.3s ease;
+      font-weight: bold;
+      transition: all 0.3s ease;
     }
 
     .links a:hover {
-      background: var(--teal);
+      background: #00ffe1;
       color: #000;
     }
 
     footer {
+      margin-top: 60px;
       font-size: 0.9rem;
-      color: #999;
+      color: #888;
     }
 
     @media (max-width: 600px) {
@@ -114,6 +109,11 @@
         font-size: 1rem;
       }
 
+      .links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
       .links a {
         width: 100%;
         text-align: center;
@@ -122,12 +122,10 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>🛡️ The Fortress</h1>
+  <div class="container">
+    <h1>🛡️ Welcome to The Fortress</h1>
     <p>A partner in the darkness. A light for lost soldiers. A weapon for those who refuse to give up.</p>
-  </header>
 
-  <main>
     <div class="video-container">
       <iframe 
         src="https://www.youtube.com/embed/gFINccmwGyA" 
@@ -141,10 +139,10 @@
       <a href="https://www.tiktok.com/@thefortressapp" target="_blank">🎬 TikTok</a>
       <a href="https://www.instagram.com/thefortressapp" target="_blank">📷 Instagram</a>
     </div>
-  </main>
 
-  <footer>
-    &copy; 2025 The Fortress Project — Built for those who battle within.
-  </footer>
+    <footer>
+      &copy; 2025 The Fortress Project — Built for those who battle within.
+    </footer>
+  </div>
 </body>
 </html>
