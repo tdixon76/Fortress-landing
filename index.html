@@ -4,17 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Fortress</title>
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="description" content="A mental health and motivation app for warriors who fight silent battles." />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --teal: #00ffe1;
-      --dark: rgba(0, 0, 0, 0.85);
-    }
-
-    html {
-      scroll-behavior: smooth;
+      --gold: #f9b84a;
+      --glow: #ff8800;
+      --dark-bg: #0d0d0d;
     }
 
     * {
@@ -25,157 +20,132 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: url('https://images.unsplash.com/photo-1608200831209-3784b5740132?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
-      background-size: cover;
+      background: radial-gradient(ellipse at top, #141414 0%, #0a0a0a 100%);
       color: #ffffff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 60px 20px;
-      position: relative;
-      animation: fadeIn 1.5s ease-out;
-    }
-
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: var(--dark);
-      z-index: 0;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+      padding: 40px 20px;
     }
 
     .container {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
+      max-width: 900px;
+      width: 100%;
       text-align: center;
+      position: relative;
     }
 
-    h1, h2 {
-      font-family: 'Orbitron', sans-serif;
-      color: var(--teal);
-      text-shadow: 0 0 15px rgba(0, 255, 225, 0.8);
+    .logo {
+      max-width: 180px;
       margin-bottom: 20px;
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 10px var(--glow));
+      }
+      50% {
+        filter: drop-shadow(0 0 20px var(--gold));
+      }
     }
 
     h1 {
+      font-family: 'Orbitron', sans-serif;
       font-size: 3rem;
-    }
-
-    h2 {
-      font-size: 2rem;
+      color: var(--gold);
+      text-shadow: 0 0 15px var(--glow);
+      margin-bottom: 16px;
     }
 
     p {
       font-size: 1.1rem;
-      line-height: 1.7;
+      line-height: 1.6;
       color: #cccccc;
-      margin-bottom: 40px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 30px;
     }
 
     .video-container {
       width: 100%;
       aspect-ratio: 16 / 9;
-      border: 2px solid var(--teal);
-      border-radius: 16px;
+      border: 2px solid var(--gold);
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 255, 225, 0.3);
-      margin-bottom: 40px;
+      box-shadow: 0 0 20px var(--glow);
+      margin: 30px 0;
     }
 
-    .links, .cta {
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 60px;
+      margin-top: 30px;
     }
 
-    .links a, .cta-button {
-      color: var(--teal);
-      border: 1px solid var(--teal);
-      padding: 12px 24px;
-      border-radius: 8px;
+    .links a {
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 10px 20px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    .links a:hover, .cta-button:hover {
-      background: var(--teal);
+    .links a:hover {
+      background: var(--gold);
       color: #000;
-      box-shadow: 0 0 20px rgba(0, 255, 225, 0.6);
     }
 
-    .features {
-      margin-top: 60px;
+    .about {
+      margin-top: 50px;
+      color: #aaaaaa;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li {
-      margin-bottom: 12px;
-      font-size: 1rem;
-      color: #bbbbbb;
-    }
-
-    .waitlist-form input[type="email"] {
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      margin-right: 12px;
-      width: 250px;
-      max-width: 100%;
-    }
-
-    .waitlist-form button {
-      background: var(--teal);
-      color: #000;
-      font-weight: bold;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .waitlist-form button:hover {
-      box-shadow: 0 0 15px rgba(0, 255, 225, 0.6);
-    }
-
-    .thank-you {
-      color: #00ffe1;
-      margin-top: 20px;
-      display: none;
+    .about h3 {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px var(--glow);
     }
 
     footer {
-      font-size: 0.9rem;
-      color: #888;
-      margin-top: 80px;
-      text-align: center;
+      font-size: 0.8rem;
+      color: #666666;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .logo {
+        max-width: 140px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>🛡️ The Fortress</h1>
-      <p>A partner in the darkness. A light for lost soldiers. A weapon for those who refuse to give up.</p>
-    </header>
+    <img src="https://raw.githubusercontent.com/tdixon76/Fortress-landing/main/emblem.png" alt="The Fortress Emblem" class="logo" />
+
+    <h1>🛡️ The Fortress</h1>
+    <p>A partner in the darkness. A light for lost soldiers. A weapon for those who refuse to give up.</p>
 
     <div class="video-container">
       <iframe 
@@ -185,34 +155,17 @@
       </iframe>
     </div>
 
-    <section class="mission">
-      <h2>Why We Built This</h2>
-      <p>The Fortress was born for those battling demons no one sees. For the ones who’ve felt surrounded yet completely alone. This app is your shield, your strategy, your spark in the dark.</p>
-    </section>
-
-    <section class="features">
-      <h2>What’s Coming</h2>
-      <ul>
-        <li>💬 Emotional Check-ins with AI Support</li>
-        <li>📜 Daily Scroll of Power</li>
-        <li>⚔️ The Fortress Guard System – earn gear by surviving the day</li>
-        <li>🎯 Task Checklists to reclaim your momentum</li>
-        <li>📱 Offline mode for real-world battles</li>
-      </ul>
-    </section>
-
-    <div class="cta">
-      <form class="waitlist-form" onsubmit="event.preventDefault(); document.getElementById('thanks').style.display = 'block';">
-        <input type="email" placeholder="Your email" required />
-        <button type="submit">Join the Waitlist</button>
-      </form>
-      <div id="thanks" class="thank-you">You're on the list. ⚔️ Stay strong.</div>
-    </div>
-
     <div class="links">
       <a href="mailto:thefortressprojectapp@gmail.com">Email</a>
       <a href="https://www.tiktok.com/@thefortressapp" target="_blank">TikTok</a>
       <a href="https://www.instagram.com/thefortressapp" target="_blank">Instagram</a>
+    </div>
+
+    <div class="about">
+      <h3>About the Creator</h3>
+      <p>
+        Former MP. Father of three. Fighter of silent battles. I built The Fortress for anyone like me — who’s felt surrounded but alone. This isn’t just an app — it’s a weapon in the war within. You’re not alone anymore.
+      </p>
     </div>
 
     <footer>
