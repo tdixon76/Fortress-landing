@@ -4,10 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Fortress</title>
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="description" content="A mental health and motivation app for warriors who fight silent battles." />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --teal: #00ffe1;
+      --dark: rgba(0, 0, 0, 0.85);
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     * {
@@ -27,6 +34,7 @@
       align-items: center;
       padding: 60px 20px;
       position: relative;
+      animation: fadeIn 1.5s ease-out;
     }
 
     body::before {
@@ -34,8 +42,13 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: var(--dark);
       z-index: 0;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .container {
@@ -45,19 +58,29 @@
       text-align: center;
     }
 
-    h1 {
+    h1, h2 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
       color: var(--teal);
       text-shadow: 0 0 15px rgba(0, 255, 225, 0.8);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1.7;
       color: #cccccc;
       margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .video-container {
@@ -70,7 +93,7 @@
       margin-bottom: 40px;
     }
 
-    .links {
+    .links, .cta {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -78,25 +101,71 @@
       margin-bottom: 60px;
     }
 
-    .links a {
+    .links a, .cta-button {
       color: var(--teal);
       border: 1px solid var(--teal);
       padding: 12px 24px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
-    .links a:hover {
+    .links a:hover, .cta-button:hover {
       background: var(--teal);
       color: #000;
+      box-shadow: 0 0 20px rgba(0, 255, 225, 0.6);
+    }
+
+    .features {
+      margin-top: 60px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      font-size: 1rem;
+      color: #bbbbbb;
+    }
+
+    .waitlist-form input[type="email"] {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-right: 12px;
+      width: 250px;
+      max-width: 100%;
+    }
+
+    .waitlist-form button {
+      background: var(--teal);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .waitlist-form button:hover {
+      box-shadow: 0 0 15px rgba(0, 255, 225, 0.6);
+    }
+
+    .thank-you {
+      color: #00ffe1;
+      margin-top: 20px;
+      display: none;
     }
 
     footer {
       font-size: 0.9rem;
       color: #888;
-      margin-top: 60px;
+      margin-top: 80px;
       text-align: center;
     }
   </style>
@@ -114,6 +183,30 @@
         title="The Fortress Trailer"
         allowfullscreen>
       </iframe>
+    </div>
+
+    <section class="mission">
+      <h2>Why We Built This</h2>
+      <p>The Fortress was born for those battling demons no one sees. For the ones who’ve felt surrounded yet completely alone. This app is your shield, your strategy, your spark in the dark.</p>
+    </section>
+
+    <section class="features">
+      <h2>What’s Coming</h2>
+      <ul>
+        <li>💬 Emotional Check-ins with AI Support</li>
+        <li>📜 Daily Scroll of Power</li>
+        <li>⚔️ The Fortress Guard System – earn gear by surviving the day</li>
+        <li>🎯 Task Checklists to reclaim your momentum</li>
+        <li>📱 Offline mode for real-world battles</li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      <form class="waitlist-form" onsubmit="event.preventDefault(); document.getElementById('thanks').style.display = 'block';">
+        <input type="email" placeholder="Your email" required />
+        <button type="submit">Join the Waitlist</button>
+      </form>
+      <div id="thanks" class="thank-you">You're on the list. ⚔️ Stay strong.</div>
     </div>
 
     <div class="links">
