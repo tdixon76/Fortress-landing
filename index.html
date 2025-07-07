@@ -20,7 +20,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: radial-gradient(ellipse at top, #141414 0%, #0a0a0a 100%);
+      background-color: var(--dark-bg);
       color: #ffffff;
       min-height: 100vh;
       display: flex;
@@ -33,22 +33,12 @@
       max-width: 900px;
       width: 100%;
       text-align: center;
-      position: relative;
     }
 
     .logo {
-      max-width: 180px;
+      max-width: 200px;
       margin-bottom: 20px;
-      animation: pulseGlow 2s ease-in-out infinite;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% {
-        filter: drop-shadow(0 0 10px var(--glow));
-      }
-      50% {
-        filter: drop-shadow(0 0 20px var(--gold));
-      }
+      filter: drop-shadow(0 0 10px var(--glow));
     }
 
     h1 {
@@ -112,37 +102,16 @@
       line-height: 1.5;
     }
 
-    .about h3 {
-      color: var(--gold);
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px var(--glow);
-    }
-
     footer {
       font-size: 0.8rem;
-      color: #666666;
+      color: #555555;
       margin-top: 60px;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .logo {
-        max-width: 140px;
-      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="https://raw.githubusercontent.com/tdixon76/Fortress-landing/main/emblem.png" alt="The Fortress Emblem" class="logo" />
+    <img src="9047BA1F-7518-4A38-BE50-A8FC70BC0749.png" alt="The Fortress Emblem" class="logo" />
 
     <h1>🛡️ The Fortress</h1>
     <p>A partner in the darkness. A light for lost soldiers. A weapon for those who refuse to give up.</p>
